@@ -24,25 +24,13 @@
 
 <body>
 <?
-function ec_slash($var) {
-$var=str_replace("\\'","'",$var);
-$var=str_replace("\\\\","\\",$var);
-$var=str_replace("\\","\\\\",$var);
-$var=str_replace("'","\\'",$var);
-return $var;
-}
-
 include 'connect_bd.php';
 
-if (isset($_POST['acc_surname'])) {
+if (isset($_POST) && !empty($_POST)) {
     $str = json_encode($_POST, JSON_UNESCAPED_UNICODE);
 	$st = htmlspecialchars($str, ENT_QUOTES);
-
-
     mysql_query('INSERT INTO data (id, data, date) VALUES ("", "'.$st.'","'.time().'")', $link)
     or die ("ERROR: ".mysql_error());
-
-    
 }
 ?>
     <section class="form_section">

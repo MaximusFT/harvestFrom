@@ -31,13 +31,8 @@ $var=str_replace("'","\\'",$var);
 return $var;
 }
 
+include 'connect_bd.php';
 
-$link = mysql_connect('localhost','mb_user','IO07fbP1');
-mysql_select_db('pass_sys');
-mysql_query("SET NAMES 'utf8'");
-mysql_set_charset('utf8');
-
-    echo '<hr>';
 if (isset($_POST['acc_surname'])) {
     $str = json_encode($_POST, JSON_UNESCAPED_UNICODE);
 	$st = htmlspecialchars($str, ENT_QUOTES);

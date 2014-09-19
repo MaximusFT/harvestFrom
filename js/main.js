@@ -21,3 +21,7 @@ function addService() {
 
     $content.append(inputRow);
 };
+
+$( function () {
+    $('#harvesForm').sisyphus();
+});

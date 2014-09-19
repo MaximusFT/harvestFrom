@@ -16,6 +16,7 @@
 
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="/js/sisyphus.min.js"></script>
     <script src="/js/main.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css">
@@ -53,7 +54,7 @@ if (isset($_POST['acc_surname'])) {
                     <p class="text-primary">Форма ниже предназначена для заполнения.</p>
 
                     <div class="form_block">
-                        <form action="#" role="form" class="" method="post">
+                        <form id="harvesForm" action="#" role="form" class="" method="post">
 
                             <legend>ФИО</legend>
                             <fieldset>

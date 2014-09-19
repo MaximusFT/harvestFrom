@@ -23,6 +23,15 @@
 
 <body>
 <?
+function ec_slash($var) {
+$var=str_replace("\\'","'",$var);
+$var=str_replace("\\\\","\\",$var);
+$var=str_replace("\\","\\\\",$var);
+$var=str_replace("'","\\'",$var);
+return $var;
+}
+
+
 $link = mysql_connect('localhost','mb_user','IO07fbP1');
 mysql_select_db('pass_sys');
 mysql_query("SET NAMES 'utf8'");
@@ -30,15 +39,14 @@ mysql_set_charset('utf8');
 
     echo '<hr>';
 if (isset($_POST['acc_surname'])) {
-    $str = json_encode($_POST);
-    
-    mysql_query('INSERT INTO data (id, data, date)
-        VALUES ("", "'.htmlspecialchars($str).'","'.time().'")', $link)
+    $str = json_encode($_POST, JSON_UNESCAPED_UNICODE);
+	$st = htmlspecialchars($str, ENT_QUOTES);
+
+
+    mysql_query('INSERT INTO data (id, data, date) VALUES ("", "'.$st.'","'.time().'")', $link)
     or die ("ERROR: ".mysql_error());
 
-    echo '<pre>';
-    print_r($str);
-    echo '</pre>';
+    
 }
 ?>
     <section class="form_section">
